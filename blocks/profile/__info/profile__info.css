@@ -8,7 +8,7 @@
     grid-template-rows: 2 auto;
     column-gap: 10px;
     row-gap: 16px;
-    justify-items: start; 
+    justify-items: start;
     align-items: end;
     color: #fff;
    }
