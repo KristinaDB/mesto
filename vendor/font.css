@@ -8,6 +8,16 @@
        url("../vendor/Inter-Regular.woff") format("woff"),
        url("../vendor/Inter-Regular.ttf") format("ttf");
 }
+
+@font-face {
+     font-family: 'Inter';
+     font-style:  normal;
+     font-weight: 500;
+     font-display: swap;
+     src: url("../vendor/Inter-Medium.woff2") format("woff2"),
+          url("../vendor/Inter-Medium.woff") format("woff"),
+          url("../vendor/Inter-Medium.ttf") format("ttf");
+     }
  
 @font-face {
   font-family: 'Inter';
