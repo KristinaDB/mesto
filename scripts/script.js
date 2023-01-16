@@ -2,7 +2,6 @@ let popup = document.querySelector('.popup');
 let container = popup.querySelector('.popup__container');
 let closePopup = popup.querySelector('.popup__btn-close');
 
-
 let openPopup = document.getElementById ('btn-edit');
 
 openPopup.addEventListener('click', function(){
@@ -29,7 +28,6 @@ let jobInput = formElement.querySelector('.form-edit__input-job');
 nameInput.value=profileName.textContent;
 jobInput.value=profileJob.textContent;
 console.log(jobInput.value);
-
 
 function handleFormSubmit (e) {
     e.preventDefault(); 

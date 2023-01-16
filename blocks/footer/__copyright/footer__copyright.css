@@ -1,26 +1,21 @@
 .footer__copyright {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 22px;
-    color: #545454;
-  }
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #545454;
+}
 
-
-@media screen and (max-width: 888px){
-  .footer__copyright  {
+@media screen and (max-width: 888px) {
+  .footer__copyright {
     margin-left: 19px;
-    
-  
   }
 }
 
-@media screen and (max-width: 500px){
-  .footer__copyright  {
+@media screen and (max-width: 500px) {
+  .footer__copyright {
     font-size: 14px;
     line-height: 17px;
-  
   }
 }
-

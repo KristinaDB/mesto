@@ -1,30 +1,30 @@
-.form-edit__btn{
-display: block;
-box-sizing: border-box;
-margin-left: auto;
-margin-right: auto;
-margin-top: 48px;
-width: 358px;
-height: 50px;
-background-color: #000000;
-color: white;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 18px;
-line-height: 22px;
-text-align: center;
-border-radius: 2px;
-transition: 0.3s ease-in;
+.form-edit__btn {
+  display: block;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 48px;
+  width: 358px;
+  height: 50px;
+  background-color: #000000;
+  color: white;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  border-radius: 2px;
+  transition: 0.3s ease-in;
 }
 
-.form-edit__btn:hover{
-opacity: 0.8;
-cursor: pointer;
+.form-edit__btn:hover {
+  opacity: 0.8;
+  cursor: pointer;
 }
 
-@media screen and (max-width: 530px){
-    .form-edit__btn{
+@media screen and (max-width: 530px) {
+  .form-edit__btn {
     width: 238px;
     height: 46px;
     margin-top: 45px;
