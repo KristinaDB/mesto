@@ -1,9 +1,9 @@
-.photo-grid__list-title {
+.photo-card__info_title {
   margin-left: 21px;
   padding: 0;
   /*border: 1px solid red;*/
   color: black;
-  font-family: 'Inter';
+  font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-weight: 900;
   font-size: 24px;

@@ -13,7 +13,7 @@
   justify-content: center;
 }
 
-@media screen and (max-width: 888px) {
+@media screen and (max-width: 920px) {
   .photo-grid__list {
     grid-template-columns: repeat(2, 282px);
     column-gap: auto;

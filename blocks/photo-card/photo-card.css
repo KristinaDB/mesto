@@ -1,4 +1,4 @@
-.photo-grid__list-item {
+.photo-card {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -8,7 +8,6 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;
-  height: 362px;
   border-radius: 10px;
   overflow: hidden;
 }

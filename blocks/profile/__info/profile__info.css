@@ -6,11 +6,17 @@
   display: grid;
   grid-template-columns: max-content 25px;
   grid-template-rows: 2 auto;
-  column-gap: 10px;
-  row-gap: 16px;
+  column-gap: 25px;
+  row-gap: 10px;
   justify-items: start;
-  align-items: end;
+  align-items: center;
   color: #fff;
+}
+
+@media screen and (max-width: 580px) {
+  .profile__info {
+    column-gap: 19px;
+  }
 }
 
 @media screen and (max-width: 500px) {

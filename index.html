@@ -12,87 +12,86 @@
   <header class="header">
     <img class="header__logo" alt="Текстовый логотип проекта" src="./images/logo.svg">
   </header>
+  <main>
+    <section class="profile">
+      <img class="profile__avatar" src="./images/avatar.jpg" alt="Фото профиля с изображением Жака-Ива Кусто">
+      <div class="profile__info">
+        <h1 class="profile__info-name">Жак-Ив Кусто</h1>
+        <button class="profile_btn-edit" id="btn-edit" type="button" aria-label="Редактировать"></button>
+        <p class="profile__info-job">Исследователь океана</p>
+      </div>
+      <button class="profile_btn-add" type="button" aria-label="Добавить"></button>
+    </section>
 
-  <div id="popup" class="popup">
-    <div id="popup__container" class="popup__container">
-      <p class="popup__title">Редактировать профиль</p>
-      <form class="form-edit" name="popup">
-        <input id="userName" class="form-edit__input form-edit__input-name" value="`" type="text" name="userName">
-        <input id="userJob" class="form-edit__input form-edit__input-job" value="`" type="text" name="userJob">
-        <button class="form-edit__btn" type="submit">Сохранить</button>
-      </form>
-    </div>
-    <button class="popup__btn-close" type="button"> <img class="popup__btn-close-ico" src="./images/Close_Icon.svg"
-        alt="Кстик"> </button>
-  </div>
-
-  <section class="profile">
-    <img class="profile__avatar" src="./images/avatar.jpg" alt="Фото профиля с изображением Жака-Ива Кусто">
-    <article class="profile__info">
-      <h1 class="profile__info-name">Жак-Ив Кусто</h1>
-      <button class="btn-edit" id="btn-edit"> <img class="btn-edit__ico" src="./images/edit.svg"
-          alt="Иконка кнопки редактировать - карандаш"></button>
-      <p class="profile__info-job">Исследователь океана</p>
-    </article>
-    <button class="btn-add"> <img class="btn-add__ico" src="./images/button_add.svg"
-        alt="Иконка кнопки добавить - плюс"></button>
-  </section>
-
-  <section class="photo-grid">
-    <ul class="photo-grid__list">
-      <li class="photo-grid__list-item">
-        <img src="./images/krasnaya.jpg" alt="Храм Васи́лия Блаже́нного на Красной площади в Москве"
-          class="photo-grid__image">
-        <div class="photo-grid__list-info">
-          <p class="photo-grid__list-title">Красная площадь </p>
-          <a href="#" class="btn-like"></a>
-        </div>
-      </li>
-      <li class="photo-grid__list-item">
-        <img src="./images/peschanaya_buhta.jpeg"
-          alt="Песчаная бухта. Фотография месчаного обрыва над озером с кустарником на краю и горами на фоне."
-          class="photo-grid__image">
-        <div class="photo-grid__list-info">
-          <p class="photo-grid__list-title"> Песчаная бухта</p>
-          <a href="#" class="btn-like"></a>
-        </div>
-      </li>
-      <li class="photo-grid__list-item">
-        <img src="./images/bashunchak.jpg" alt="Котловина пересыхающего солёного озера." class="photo-grid__image">
-        <div class="photo-grid__list-info">
-          <p class="photo-grid__list-title"> Баскунчак</p>
-          <a href="#" class="btn-like"></a>
-        </div>
-      </li>
-      <li class="photo-grid__list-item">
-        <img src="./images/baykal.jpg" alt="Фотография озера Байкал, сквозь деревья. Вид под углом 45 градусов"
-          class="photo-grid__image">
-        <div class="photo-grid__list-info">
-          <p class="photo-grid__list-title">Байкал</p>
-          <a href="#" class="btn-like"></a>
-        </div>
-      </li>
-      <li class="photo-grid__list-item">
-        <img src="./images/lenskie_stolby.jpg" alt="Национальный парк. Горные обрывы над рекой"
-          class="photo-grid__image">
-        <div class="photo-grid__list-info">
-          <p class="photo-grid__list-title">Ленские столбы</p>
-          <a href="#" class="btn-like"></a>
-        </div>
-      </li>
-      <li class="photo-grid__list-item">
-        <img src="./images/elbrus.jpg" alt="Гора Эльбрус издалека" class="photo-grid__image">
-        <div class="photo-grid__list-info">
-          <p class="photo-grid__list-title">Эльбрус</p>
-          <a href="#" class="btn-like"></a>
-        </div>
-      </li>
-    </ul>
-  </section>
-
+    <section class="photo-grid">
+      <ul class="photo-grid__list">
+        <li class="photo-card">
+          <img src="./images/krasnaya.jpg" alt="Храм Васи́лия Блаже́нного на Красной площади в Москве"
+            class="photo-card__image">
+          <div class="photo-card__info">
+            <h3 class="photo-card__info_title">Красная площадь </h3>
+            <button id="btn-like" type="button" aria-label="Нравится" class="photo-card__btn-like"></button>
+          </div>
+        </li>
+        <li class="photo-card">
+          <img src="./images/peschanaya_buhta.jpeg"
+            alt="Песчаная бухта. Фотография месчаного обрыва над озером с кустарником на краю и горами на фоне."
+            class="photo-card__image">
+          <div class="photo-card__info">
+            <h3 class="photo-card__info_title"> Песчаная бухта</h3>
+            <button id="btn-like" type="button" aria-label="Нравится" class="photo-card__btn-like"></button>
+          </div>
+        </li>
+        <li class="photo-card">
+          <img src="./images/bashunchak.jpg" alt="Котловина пересыхающего солёного озера." class="photo-card__image">
+          <div class="photo-card__info">
+            <h3 class="photo-card__info_title"> Баскунчак</h3>
+            <button id="btn-like" type="button" aria-label="Нравится" class="photo-card__btn-like"></button>
+          </div>
+        </li>
+        <li class="photo-card">
+          <img src="./images/baykal.jpg" alt="Фотография озера Байкал, сквозь деревья. Вид под углом 45 градусов"
+            class="photo-card__image">
+          <div class="photo-card__info">
+            <h3 class="photo-card__info_title">Байкал</h3>
+            <button id="btn-like" type="button" aria-label="Нравится" class="photo-card__btn-like"></button>
+          </div>
+        </li>
+        <li class="photo-card">
+          <img src="./images/lenskie_stolby.jpg" alt="Национальный парк. Горные обрывы над рекой"
+            class="photo-card__image">
+          <div class="photo-card__info">
+            <h3 class="photo-card__info_title">Ленские столбы</h3>
+            <button id="btn-like" type="button" aria-label="Нравится" class="photo-card__btn-like"></button>
+          </div>
+        </li>
+        <li class="photo-card">
+          <img src="./images/elbrus.jpg" alt="Гора Эльбрус издалека" class="photo-grid__image">
+          <div class="photo-card__info">
+            <h3 class="photo-card__info_title">Эльбрус</h3>
+            <button id="btn-like" type="button" aria-label="Нравится" class="photo-card__btn-like"></button>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </main>
   <footer class="footer">
     <p class="footer__copyright">© 2020 Mesto Russia</p>
   </footer>
+
+  <div id="popup" class="popup">
+    <button class="popup__btn-close" type="button" aria-label="Закрыть"></button>
+    <div id="popup__container" class="popup__container">
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <form class="form-edit" name="popup">
+        <input id="userName" class="form-edit__input" value="`" type="text" name="userName" required
+          placeholder="Введите имя">
+        <input id="userJob" class="form-edit__input" value="`" type="text" name="userJob" required
+          placeholder="Введите вид деятельности">
+        <button class="form-edit__btn" type="submit">Сохранить</button>
+      </form>
+    </div>
+  </div>
   <script src='./scripts/script.js'></script>-
 </body>
 

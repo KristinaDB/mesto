@@ -1,0 +1,11 @@
+.form-edit{
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+}
+
+@media screen and (max-width: 530px) {
+  .form-edit {
+    margin-top: 40px;
+  }
+}

@@ -1,9 +1,0 @@
-.form-edit__input-name {
-  margin-top: 42px;
-}
-
-@media screen and (max-width: 530px) {
-  .form-edit__input-name {
-    margin-top: 70px;
-  }
-}

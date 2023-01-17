@@ -1,4 +1,4 @@
-.btn-add {
+.profile_btn-add {
   padding: 0;
   border: 2px solid #fff;
   border-radius: 2px;
@@ -11,26 +11,33 @@
   background: transparent;
   margin: auto;
   transition: 0.3s ease-in;
+  background-image: url(../../../images/button_add.svg);
+  background-size: 22px 22px;
+  background-repeat: no-repeat;
+  background-position:center;
 }
 
-.btn-add:hover {
+.profile_btn-add:hover {
   cursor: pointer;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 700px) {
-  .btn-add {
+  .profile_btn-add {
     width: 282px;
-    height: 50px;
-    margin-left: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-column-start: 1;
+    grid-column-end: 3;
   }
 }
 
 @media screen and (max-width: 500px) {
-  .btn-add {
-    width: 282px;
-    height: 50px;
+  .profile_btn-add {
+    grid-column-start: 1;
+    grid-column-end: 2;
     margin-left: 0;
     margin-top: 12px;
+    
   }
 }
