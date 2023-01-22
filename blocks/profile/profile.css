@@ -16,11 +16,11 @@
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 760px) {
   .profile {
     grid-template-columns: 120px 1fr;
     grid-template-rows: 2 auto;
-    row-gap: 36px;
+    row-gap: 22px;
   }
 }
 
@@ -28,7 +28,6 @@
   .profile {
     grid-template-columns: 282px;
     grid-template-rows: 3 auto;
-    row-gap: 22px;
     justify-content: center;
     justify-items: center;
     margin-left: auto;

@@ -18,11 +18,11 @@
     grid-template-columns: repeat(2, 282px);
     column-gap: auto;
     margin-left: auto;
-    margin-bottom: auto;
+    margin-right: auto;
   }
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 610px) {
   .photo-grid__list {
     grid-template-columns: repeat(1, 282px);
   }

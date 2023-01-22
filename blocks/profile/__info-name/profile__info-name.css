@@ -2,7 +2,7 @@
   padding: 0;
   /*border: 2px solid rgb(169, 25, 25);*/
   box-sizing: border-box;
-  font-family: 'Inter';
+  font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 42px;
