@@ -19,11 +19,11 @@ const photoElement = Template.querySelector('.photo-card').cloneNode(true);
 const buttonLike = Template.querySelectorAll('.photo-card__btn-like');
 //const resetButton = document.getElementsByClassName('photo-card__delete');
 //const popupPhoto = document.getElementsByClassName('popup-photo');
-const photoLink = document.querySelector('.popup-photo__container_view');
-const photoTitle = document.querySelector('.popup-photo__container_title');
+const photoLink = document.querySelector('.popup-photo__container-view');
+const photoTitle = document.querySelector('.popup-photo__container-title');
 //console.log(popupPhoto, photoLink, photoTitle);
 const popupPhoto = document.querySelector('.popup-photo');
-const photoClose = document.querySelector('.popup-photo__container_close');
+const photoClose = document.querySelector('.popup-photo__container-close');
 photoPlace = [
   {
     name: 'Зеленоград, Россия',
