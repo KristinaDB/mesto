@@ -6,9 +6,15 @@
   width: 22px;
   height: 19px;
   transition: 0.3s ease-in;
+  opacity: 1;
 }
 
 .photo-card__btn-like:hover {
   cursor: pointer;
   opacity: 0.5;
+}
+
+.photo-card__btn-like:active,
+.photo-card__btn-like:focus {
+  opacity: 1;
 }

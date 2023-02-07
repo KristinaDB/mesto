@@ -1,3 +1,5 @@
-.photo-card__image {
-  height: 282px;
+.photo-card__image{
+  object-fit: cover;
+  min-height: 100%;
+  max-width: 100%;
 }

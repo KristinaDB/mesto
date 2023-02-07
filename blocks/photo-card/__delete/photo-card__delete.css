@@ -1,0 +1,17 @@
+.photo-card__delete{
+    background-image: url(../../../images/ico_delete.png);
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: transparent;
+    border: none;
+    width: 18px;
+    height: 19px;
+    transition: 0.3s ease-in;
+    
+}
+
+.photo-card__delete:hover {
+    cursor: pointer;
+    opacity: 0.5;
+  }

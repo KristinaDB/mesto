@@ -17,61 +17,14 @@
       <img class="profile__avatar" src="./images/avatar.jpg" alt="Фото профиля с изображением Жака-Ива Кусто">
       <div class="profile__info">
         <h1 class="profile__info-name">Жак-Ив Кусто</h1>
-        <button class="profile__btn-edit" id="btn-edit" type="button" aria-label="Редактировать"></button>
+        <button class="profile__btn-edit btn-popup" id="btn-edit" type="button" aria-label="Редактировать"></button>
         <p class="profile__info-job">Исследователь океана</p>
       </div>
-      <button class="profile__btn-add" type="button" aria-label="Добавить"></button>
+      <button class="profile__btn-add btn-popup" id="btn-add" type="button" aria-label="Добавить"></button>
     </section>
 
     <section class="photo-grid">
       <ul class="photo-grid__list">
-        <li class="photo-card">
-          <img src="./images/krasnaya.jpg" alt="Храм Васи́лия Блаже́нного на Красной площади в Москве"
-            class="photo-card__image">
-          <div class="photo-card__info">
-            <h3 class="photo-card__title">Красная площадь </h3>
-            <button id="btn-like" type="button" aria-label="Нравится" class="photo-card__btn-like"></button>
-          </div>
-        </li>
-        <li class="photo-card">
-          <img src="./images/peschanaya_buhta.jpeg"
-            alt="Песчаная бухта. Фотография месчаного обрыва над озером с кустарником на краю и горами на фоне."
-            class="photo-card__image">
-          <div class="photo-card__info">
-            <h3 class="photo-card__title"> Песчаная бухта</h3>
-            <button type="button" aria-label="Нравится" class="photo-card__btn-like"></button>
-          </div>
-        </li>
-        <li class="photo-card">
-          <img src="./images/bashunchak.jpg" alt="Котловина пересыхающего солёного озера." class="photo-card__image">
-          <div class="photo-card__info">
-            <h3 class="photo-card__title"> Баскунчак</h3>
-            <button type="button" aria-label="Нравится" class="photo-card__btn-like"></button>
-          </div>
-        </li>
-        <li class="photo-card">
-          <img src="./images/baykal.jpg" alt="Фотография озера Байкал, сквозь деревья. Вид под углом 45 градусов"
-            class="photo-card__image">
-          <div class="photo-card__info">
-            <h3 class="photo-card__title">Байкал</h3>
-            <button type="button" aria-label="Нравится" class="photo-card__btn-like"></button>
-          </div>
-        </li>
-        <li class="photo-card">
-          <img src="./images/lenskie_stolby.jpg" alt="Национальный парк. Горные обрывы над рекой"
-            class="photo-card__image">
-          <div class="photo-card__info">
-            <h3 class="photo-card__title">Ленские столбы</h3>
-            <button type="button" aria-label="Нравится" class="photo-card__btn-like"></button>
-          </div>
-        </li>
-        <li class="photo-card">
-          <img src="./images/elbrus.jpg" alt="Гора Эльбрус издалека" class="photo-grid__image">
-          <div class="photo-card__info">
-            <h3 class="photo-card__title">Эльбрус</h3>
-            <button type="button" aria-label="Нравится" class="photo-card__btn-like"></button>
-          </div>
-        </li>
       </ul>
     </section>
   </main>
@@ -83,15 +36,47 @@
     <button class="popup__btn-close" type="button" aria-label="Закрыть"></button>
     <div id="popup__container" class="popup__container">
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="form-edit" name="popup">
+      <!-- Форма для редактирования информации профиля-->
+      <form class="form-edit" id="formEdit" name="popupEdit">
         <input id="userName" class="form-edit__input" value="`" type="text" name="userName" required
           placeholder="Введите имя">
         <input id="userJob" class="form-edit__input" value="`" type="text" name="userJob" required
           placeholder="Введите вид деятельности">
-        <button class="form-edit__btn" type="submit">Сохранить</button>
+        <button class="form-edit__btn" id="buttonEdit" type="submit">Сохранить</button>
+      </form>
+      <!-- Форма для добавления фотографии-->
+      <form class="form-edit" id="formAdd" name="popupAddPhoto">
+        <input id="photoName" class="form-edit__input" value="" type="text" name="photoName" required
+          placeholder="Название">
+        <input id="photoLink" class="form-edit__input" value="" type="text" name="photoLink" required
+          placeholder="Ссылка на картинку">
+        <button class="form-edit__btn" id="buttonAdd" type="submit">Создать</button>
       </form>
     </div>
   </div>
+
+  <div id="popup-photo" class="popup-photo">
+    <div id="popup__container-photo" class="popup__container-photo">
+      <button class="popup__container-close" type="button" aria-label="Закрыть"></button>
+      <img src="#" class="popup__container-view" alt="Описание изображения">
+      <h2 class="popup__container-title">Название</h2>
+    </div>
+  </div>
+
+
+  <template id="userPhoto">
+    <li class="photo-card">
+      <button id="btn-delete" type="button" aria-label="Удалить" class="photo-card__delete"></button>
+      <div class="photo-card__container">
+        <img src="#" alt="Описание изображения" class="photo-card__image">
+      </div>
+      <div class="photo-card__info">
+        <h3 class="photo-card__title"></h3>
+        <button type="button" aria-label="Нравится" class="photo-card__btn-like"></button>
+      </div>
+    </li>
+  </template>
+
   <script src='./scripts/script.js'></script>-
 </body>
 
