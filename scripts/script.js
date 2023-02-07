@@ -19,11 +19,11 @@ const photoElement = Template.querySelector('.photo-card').cloneNode(true);
 const buttonLike = Template.querySelectorAll('.photo-card__btn-like');
 //const resetButton = document.getElementsByClassName('photo-card__delete');
 //const popupPhoto = document.getElementsByClassName('popup-photo');
-const photoLink = document.querySelector('.popup__container-view');
-const photoTitle = document.querySelector('.popup__container-title');
+const photoLink = document.querySelector('.popup-photo__container_view');
+const photoTitle = document.querySelector('.popup-photo__container_title');
 //console.log(popupPhoto, photoLink, photoTitle);
 const popupPhoto = document.querySelector('.popup-photo');
-const photoClose = document.querySelector('.popup__container-close');
+const photoClose = document.querySelector('.popup-photo__container_close');
 photoPlace = [
   {
     name: 'Зеленоград, Россия',
@@ -62,8 +62,8 @@ photoPlace.forEach(function (index) {
   photoElement.querySelector('.photo-card__image').alt = index.name;
   const buttonLike = photoElement.querySelector('.photo-card__btn-like');
   buttonLike.addEventListener('click', function (index) {
-    const indexTarget = index.target;
-    indexTarget.classList.toggle('photo-card__btn-like_active');
+  const indexTarget = index.target;
+  indexTarget.classList.toggle('photo-card__btn-like_active');
   })
 
   photoElement.querySelector('.photo-card__image').addEventListener('click', function () {
@@ -143,7 +143,7 @@ popupOpen.forEach((index) => { //перебираем NodeList, отслежив
 function closePopupForm() { //функция закрытия popup
   popup.classList.remove('popup_opened');//удаляем класс у popup, закрывая его
   //удаляем класс у формы, закрывая форму
-  
+
 }
 
 // Обработчик «отправки» формы, хотя пока
