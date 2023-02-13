@@ -34,7 +34,7 @@ const createCard = (cardAdd) => {
   photoElement.querySelector('.photo-card__image').alt = cardAdd.name;
 
   //функция обработки кнопки 
-  const buttonLike = photoElement.querySelector('.photo-card__btn-like'); лайка
+  const buttonLike = photoElement.querySelector('.photo-card__btn-like');
   buttonLike.addEventListener('click', function (index) {
     const indexTarget = index.target;
     indexTarget.classList.toggle('photo-card__btn-like_active');
