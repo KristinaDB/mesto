@@ -1,5 +1,5 @@
 .form-edit{
-  display: none;
+  display: flex;
   flex-direction: column;
   margin-top: 12px;
 }
