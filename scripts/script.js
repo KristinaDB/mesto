@@ -33,7 +33,7 @@ const createCard = (cardAdd) => {
   photoElement.querySelector('.photo-card__title').textContent = cardAdd.name;
   photoElement.querySelector('.photo-card__image').alt = cardAdd.name;
 
-  //функция обработки кнопки 
+  //функция обработки кнопки лайка
   const buttonLike = photoElement.querySelector('.photo-card__btn-like');
   buttonLike.addEventListener('click', function (index) {
     const indexTarget = index.target;
