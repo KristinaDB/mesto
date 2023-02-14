@@ -50,10 +50,12 @@ const createCard = (cardAdd) => {
   photoElement.querySelector('.photo-card__image').addEventListener('click', () => {
     openPopup(popupViewPhoto);
     photoLink.src = photoElement.querySelector('.photo-card__image').src;
+    photoLink.alt = photoElement.textContent;
     photoTitle.textContent = photoElement.textContent;
+
   })
 
-//возвращаем картоку
+  //возвращаем картоку
   return photoElement;
 }
 
@@ -86,8 +88,12 @@ const photoAddFromForm = (evt) => {
 //функция открытия попапов
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+}
+
+function openPropfilePopup() {
   nameInput.value = profileName.textContent; //заносим данные в форму
-  jobInput.value = profileJob.textContent;
+  jobInput.value = profileJob.textContent; //заполняем поля формы 
+  openPopup(popupEditProfile); //вызываем функцию для открытия попапа 
 }
 
 
@@ -104,11 +110,12 @@ function handleFormSubmit(e) {
   closePopup(popupEditProfile);//вызов функции закрытия popup
 }
 
+document.querySelectorAll('.popup__btn-close').forEach(button => {
+  const buttonsPopup = button.closest('.popup'); // нашли родителя с нужным классом
+  button.addEventListener('click', () => closePopup(buttonsPopup)); // закрыли попап
+});
 
-formEditOpen.addEventListener('click', () => openPopup(popupEditProfile));//обработчик события открытия popup редактиварония профиля
+formEditOpen.addEventListener('click', openPropfilePopup);//обработчик события открытия popup редактиварония профиля
 formAddOpen.addEventListener('click', () => openPopup(popupAddPhoto));//обработчик события открытия popup добавления карточки
-buttonAddClose.addEventListener('click', () => closePopup(popupAddPhoto));///обработчик события закрытия  зopup добавления карточки
-buttonEditClose.addEventListener('click', () => closePopup(popupEditProfile));//обработчик события закрытия popup редактиварония профиля
-photoClose.addEventListener('click', () => closePopup(popupViewPhoto));//обработчик события закрытия popup просмотра фотографии
 formEdit.addEventListener('submit', handleFormSubmit); //обработка кнопки формы редактирования профиля
 formAdd.addEventListener('submit', photoAddFromForm);//обработка кнопки формы загрузки карточки
