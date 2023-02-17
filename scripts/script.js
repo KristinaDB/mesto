@@ -23,6 +23,7 @@ const photoLink = document.querySelector('.popup__container-view');
 const photoTitle = document.querySelector('.popup__container-title');
 const popupPhoto = document.querySelector('.popup-photo');
 const photoClose = document.querySelector('.popup__container-close');
+const popupList = Array.from(document.querySelectorAll('.popup'));
 
 
 
@@ -88,6 +89,7 @@ const photoAddFromForm = (evt) => {
 //функция открытия попапов
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupByKeydown);
 }
 
 function openPropfilePopup() {
@@ -100,7 +102,31 @@ function openPropfilePopup() {
 //функция закрытия попапов
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupByKeydown);
 }
+
+
+//функция закрытия попапов при клике на оверлей
+function closePopupClickOverlay() {
+  popupList.forEach((item) => {
+    item.addEventListener('mousedown', (event) => {
+      if (event.target === event.currentTarget) {
+        closePopup(item);
+      }
+    })
+  })
+}
+
+//функция закрытия попапа нажатиев клавиши Escape
+function closePopupByKeydown(evt) {
+  popupList.forEach(item => {
+    if (evt.key === 'Escape') {
+      console.log(evt.key);
+      closePopup(item);
+    }
+  });
+}
+
 
 //функция обработки кнопки отправки формы
 function handleFormSubmit(e) {
@@ -115,7 +141,11 @@ document.querySelectorAll('.popup__btn-close').forEach(button => {
   button.addEventListener('click', () => closePopup(buttonsPopup)); // закрыли попап
 });
 
+
 formEditOpen.addEventListener('click', openPropfilePopup);//обработчик события открытия popup редактиварония профиля
 formAddOpen.addEventListener('click', () => openPopup(popupAddPhoto));//обработчик события открытия popup добавления карточки
 formEdit.addEventListener('submit', handleFormSubmit); //обработка кнопки формы редактирования профиля
 formAdd.addEventListener('submit', photoAddFromForm);//обработка кнопки формы загрузки карточки
+popupEditProfile.addEventListener('click', closePopupClickOverlay);
+popupAddPhoto.addEventListener('click', closePopupClickOverlay);
+popupViewPhoto.addEventListener('click', closePopupClickOverlay);

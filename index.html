@@ -37,12 +37,14 @@
     <div id="popup__container" class="popup__container">
       <h2 id="title-edit-profile" class="popup__title">Редактировать профиль</h2>
       <!-- Форма для редактирования информации профиля-->
-      <form class="form-edit" id="formEdit" name="popupEdit">
-        <input id="userName" class="form-edit__input" value="`" type="text" name="userName" required
-          placeholder="Введите имя">
-        <input id="userJob" class="form-edit__input" value="`" type="text" name="userJob" required
-          placeholder="Введите вид деятельности">
-        <button class="form-edit__btn" id="buttonEdit" type="submit">Сохранить</button>
+      <form novalidate class="form-edit popup__form" id="formEdit" name="popupEdit">
+        <input id="userName" class="form-edit__input popup__input" value="`" type="text" name="userName" required
+          placeholder="Введите имя" minlength="2" maxlength="40" required> 
+          <span id="userName-error" class="input-error"></span>
+        <input id="userJob" class="form-edit__input popup__input" value="`" type="text" name="userJob" required
+          placeholder="Введите вид деятельности" minlength="2" maxlength="200" required>
+          <span id="userJob-error"class="input-error"></span>
+        <button class="form-edit__btn popup__button" id="buttonEdit" type="submit">Сохранить</button>
       </form>
     </div>
   </div>
@@ -52,12 +54,14 @@
     <button id="close-add-photo" class="popup__btn-close" type="button" aria-label="Закрыть"></button>
     <div class="popup__container">
       <h2 id="title-add-photo" class="popup__title">Новое место</h2>
-      <form class="form-edit" id="formAdd" name="popupAddPhoto">
-        <input id="photoName" class="form-edit__input" value="" type="text" name="photoName" required
-          placeholder="Название">
-        <input id="photoLink" class="form-edit__input" value="" type="text" name="photoLink" required
+      <form novalidate class="form-edit popup__form" id="formAdd" name="popupAddPhoto">
+        <input id="photoName" class="form-edit__input popup__input" value="" type="text" name="photoName" required
+          placeholder="Название" minlength="2" maxlength="30">
+          <span id="photoName-error" class="input-error"></span>
+        <input id="photoLink" class="form-edit__input popup__input" value="" type="url" name="photoLink" required
           placeholder="Ссылка на картинку">
-        <button class="form-edit__btn" id="buttonAdd" type="submit">Создать</button>
+          <span id="photoLink-error" class="input-error"></span>
+        <button class="form-edit__btn popup__button" id="buttonAdd" type="submit">Создать</button>
       </form>
     </div>
   </div>
@@ -83,6 +87,7 @@
       </div>
     </li>
   </template>
+  <script src='./scripts/validate.js'></script>
   <script src='./scripts/cards.js'></script>
   <script src='./scripts/script.js'></script>
 </body>
