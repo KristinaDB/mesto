@@ -6,7 +6,6 @@ function enableValidation(config) {
     const formList = Array.from(document.querySelectorAll(config.formSelector));
     formList.forEach((item) => {
         item.addEventListener('submit', disableSubmit);
-        item.addEventListener('submit', disableSubmit);
         item.addEventListener('input', () => {
             toggleButton(item, config);
         });
@@ -34,9 +33,8 @@ function toggleButton(form, config) {
     const buttonSubmit = form.querySelector(config.submitButtonSelector);
     const isFormValid = form.checkValidity();
     buttonSubmit.disabled = !isFormValid;
-    buttonSubmit.classList.toggle('popup__button_disabled', !isFormValid);
+    buttonSubmit.classList.toggle(config.inactiveButtonClass, !isFormValid);
 }
-
 
 
 function addInputListener(form, config) {

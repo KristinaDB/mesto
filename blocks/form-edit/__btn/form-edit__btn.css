@@ -16,7 +16,7 @@
   transition: 0.3s ease-in;
 }
 
-.form-edit__btn:hover {
+.form-edit__btn:not([disabled]):hover {
   opacity: 0.8;
   cursor: pointer;
 }

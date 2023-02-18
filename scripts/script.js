@@ -23,9 +23,9 @@ const photoLink = document.querySelector('.popup__container-view');
 const photoTitle = document.querySelector('.popup__container-title');
 const popupPhoto = document.querySelector('.popup-photo');
 const photoClose = document.querySelector('.popup__container-close');
-const popupList = Array.from(document.querySelectorAll('.popup'));
-
-
+const popups = document.querySelectorAll('.popup');
+const buttonAdd = document.querySelector('#buttonAdd');
+//const popupList = Array.from(document.querySelectorAll('.popup'));
 
 // функция добавления карточек
 const createCard = (cardAdd) => {
@@ -79,17 +79,22 @@ const photoAddFromForm = (evt) => {
   }
 
   renderCard(newCard);
-
-  photoLinkInput.value = '';
-  photoNameInput.value = '';
+  evt.target.reset();
   closePopup(popupAddPhoto);
 
+}
+
+const buttonDisabled = (button) => {
+  if ((photoNameInput.value==='')&& (photoLinkInput.value==='')){
+    button.disabled = true;
+    button.classList.add('popup__button_disabled');
+  }
 }
 
 //функция открытия попапов
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', closePopupByKeydown);
+  document.addEventListener('keydown', closeByEscape);
 }
 
 function openPropfilePopup() {
@@ -98,35 +103,38 @@ function openPropfilePopup() {
   openPopup(popupEditProfile); //вызываем функцию для открытия попапа 
 }
 
+function openPhotoAddPopup(){
+  buttonDisabled(buttonAdd);
+  openPopup(popupAddPhoto);
+}
 
 //функция закрытия попапов
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', closePopupByKeydown);
+  document.removeEventListener('keydown', closeByEscape);
 }
 
-
-//функция закрытия попапов при клике на оверлей
-function closePopupClickOverlay() {
-  popupList.forEach((item) => {
-    item.addEventListener('mousedown', (event) => {
-      if (event.target === event.currentTarget) {
-        closePopup(item);
-      }
-    })
-  })
-}
-
-//функция закрытия попапа нажатиев клавиши Escape
-function closePopupByKeydown(evt) {
-  popupList.forEach(item => {
-    if (evt.key === 'Escape') {
-      console.log(evt.key);
-      closePopup(item);
+popups.forEach((popup) => {
+  console.log(popups);
+  popup.addEventListener('mousedown', (evt) => {
+    console.log(evt.target);
+    console.log(popup);
+    if (evt.target.classList.contains('popup_opened')) {
+      closePopup(popup)
     }
-  });
-}
+    if (evt.target.classList.contains('popup__close')) {
+      console.log(evt.target.classList.contains('popup__close'));
+      closePopup(popup);
+    }
+  })
+})
 
+function closeByEscape(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
+  }
+}
 
 //функция обработки кнопки отправки формы
 function handleFormSubmit(e) {
@@ -136,16 +144,8 @@ function handleFormSubmit(e) {
   closePopup(popupEditProfile);//вызов функции закрытия popup
 }
 
-document.querySelectorAll('.popup__btn-close').forEach(button => {
-  const buttonsPopup = button.closest('.popup'); // нашли родителя с нужным классом
-  button.addEventListener('click', () => closePopup(buttonsPopup)); // закрыли попап
-});
-
-
 formEditOpen.addEventListener('click', openPropfilePopup);//обработчик события открытия popup редактиварония профиля
-formAddOpen.addEventListener('click', () => openPopup(popupAddPhoto));//обработчик события открытия popup добавления карточки
+formAddOpen.addEventListener('click', openPhotoAddPopup);//обработчик события открытия popup добавления карточки
 formEdit.addEventListener('submit', handleFormSubmit); //обработка кнопки формы редактирования профиля
 formAdd.addEventListener('submit', photoAddFromForm);//обработка кнопки формы загрузки карточки
-popupEditProfile.addEventListener('click', closePopupClickOverlay);
-popupAddPhoto.addEventListener('click', closePopupClickOverlay);
-popupViewPhoto.addEventListener('click', closePopupClickOverlay);
+
