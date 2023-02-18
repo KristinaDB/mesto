@@ -100,12 +100,14 @@ function openPopup(popup) {
 }
 
 function openPropfilePopup() {
+  clearInputError(errorInput, inputs);
   nameInput.value = profileName.textContent; //заносим данные в форму
   jobInput.value = profileJob.textContent; //заполняем поля формы 
   openPopup(popupEditProfile); //вызываем функцию для открытия попапа 
 }
 
 function openPhotoAddPopup() {
+  clearInputError(errorInput, inputs);
   buttonDisabled(buttonAdd);
   openPopup(popupAddPhoto);
 }
@@ -126,7 +128,6 @@ function clearInputError(error, input) {
 
 
 function closePopup(popup) {
-  clearInputError(errorInput, inputs);
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', closeByEscape);
   console.log(errorInput);
