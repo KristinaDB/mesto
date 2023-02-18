@@ -111,16 +111,22 @@ function openPhotoAddPopup() {
 }
 
 
-//функция закрытия попапов
-function closePopup(popup) {
-  errorInput.forEach((index) => {
+//функция закрытия попаповсвв од рнь
+
+function clearInputError(error, input) {
+  error.forEach((index) => {
     console.log(index);
     index.textContent = '';
   })
-  inputs.forEach((item) => {
+  input.forEach((item) => {
     item.classList.remove('popup__input_type_error');
     item.value = '';
   })
+}
+
+
+function closePopup(popup) {
+  clearInputError(errorInput, inputs);
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', closeByEscape);
   console.log(errorInput);
