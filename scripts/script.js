@@ -25,7 +25,9 @@ const popupPhoto = document.querySelector('.popup-photo');
 const photoClose = document.querySelector('.popup__container-close');
 const popups = document.querySelectorAll('.popup');
 const buttonAdd = document.querySelector('#buttonAdd');
-//const popupList = Array.from(document.querySelectorAll('.popup'));
+const errorInput = document.querySelectorAll('.input-error');
+const inputs = document.querySelectorAll('.popup__input');
+console.log(errorInput);
 
 // функция добавления карточек
 const createCard = (cardAdd) => {
@@ -85,7 +87,7 @@ const photoAddFromForm = (evt) => {
 }
 
 const buttonDisabled = (button) => {
-  if ((photoNameInput.value==='')&& (photoLinkInput.value==='')){
+  if ((photoNameInput.value === '') && (photoLinkInput.value === '')) {
     button.disabled = true;
     button.classList.add('popup__button_disabled');
   }
@@ -103,27 +105,34 @@ function openPropfilePopup() {
   openPopup(popupEditProfile); //вызываем функцию для открытия попапа 
 }
 
-function openPhotoAddPopup(){
+function openPhotoAddPopup() {
   buttonDisabled(buttonAdd);
   openPopup(popupAddPhoto);
 }
 
+
 //функция закрытия попапов
 function closePopup(popup) {
+  errorInput.forEach((index) => {
+    console.log(index);
+    index.textContent = '';
+  })
+  inputs.forEach((item) => {
+    item.classList.remove('popup__input_type_error');
+    item.value = '';
+  })
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', closeByEscape);
+  console.log(errorInput);
+
 }
 
 popups.forEach((popup) => {
-  console.log(popups);
   popup.addEventListener('mousedown', (evt) => {
-    console.log(evt.target);
-    console.log(popup);
     if (evt.target.classList.contains('popup_opened')) {
       closePopup(popup)
     }
     if (evt.target.classList.contains('popup__close')) {
-      console.log(evt.target.classList.contains('popup__close'));
       closePopup(popup);
     }
   })
