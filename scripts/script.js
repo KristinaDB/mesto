@@ -84,19 +84,21 @@ function openPropfilePopup() {
   jobInput.value = profileJob.textContent; //заполняем поля формы 
   const newValidator = new FormValidator(objectValidation, '.form-edit');
   newValidator.enableValidation();
+  console.log(newValidator);
   openPopup(popupEditProfile); //вызываем функцию для открытия попапа 
 }
 
 function openPhotoAddPopup() {
   clearInputError(errorInput, inputs);
   buttonDisabled(buttonAdd);
-  const newValidator = new FormValidator(objectValidation, '.form-add');
-  newValidator.enableValidation();
+  const newValidatorForm = new FormValidator(objectValidation, '.form-add');
+  newValidatorForm.enableValidation();
+  console.log(newValidatorForm);
   openPopup(popupAddPhoto);
 }
 
 
-//функция закрытия попаповсвв од рнь
+//функция закрытия попапов
 
 function clearInputError(error, input) {
   error.forEach((index) => {

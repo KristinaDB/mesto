@@ -1,26 +1,19 @@
 class FormValidator {
-    constructor(config, formSelector) {
-        this._formSelector = formSelector;
+    constructor(config, selector) {
+        this._selector = selector;
         this._formSelector = config.formSelector;
         this._inputSelector = config.inputSelector;
         this._submitButtonSelector = config.submitButtonSelector;
         this._inactiveButtonClass = config.inactiveButtonClass;
         this._inputErrorClass = config.inputErrorClass;
         this._errorClass = config.errorClass;
-        this._form = document.querySelector(this._formSelector);
+        this._form = document.querySelector(this._selector);
 
         this._buttonSubmit = this._form.querySelector(this._submitButtonSelector);
         this._inputList = Array.from(this._form.querySelectorAll(this._inputSelector));
     }
 
-    // _getSelector() {
-    //     const form = document.querySelector(this._formSelector);
-
-    //     return form;
-    //   }
-
-
-    _disableSubmit(event) {
+        _disableSubmit(event) {
         event.preventDefault();
     }
 
@@ -56,11 +49,11 @@ class FormValidator {
     }
 
     _setEventListener() {
-       console.log(this._inputList);
-       this._inputList.forEach((item) => {
+        this._inputList.forEach((item) => {
         item.addEventListener('input', () => {
         this._toggleButton() ;
         this._checkValidInput(item);
+        console.log(this._buttonSubmit);
         });
     });
     }
