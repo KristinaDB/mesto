@@ -13,7 +13,7 @@ class FormValidator {
         this._inputList = Array.from(this._form.querySelectorAll(this._inputSelector));
     }
 
-        _disableSubmit(event) {
+    _disableSubmit(event) {
         event.preventDefault();
     }
 
@@ -48,23 +48,29 @@ class FormValidator {
         this._buttonSubmit.classList.toggle(this._inactiveButtonClass, !this._form.checkValidity());
     }
 
+    _buttonDisabled(item) {
+        if (item.value === '') {
+             this._buttonSubmit.disabled = true;
+            this._buttonSubmit.classList.add('popup__button_disabled');
+        }
+    }
+
     _setEventListener() {
         this._inputList.forEach((item) => {
-        item.addEventListener('input', () => {
-        this._toggleButton() ;
-        this._checkValidInput(item);
-        console.log(this._buttonSubmit);
+            this._buttonDisabled(item);
+            item.addEventListener('input', () => {
+                this._toggleButton();
+                this._checkValidInput(item);
+            });
         });
-    });
     }
 
     enableValidation() {
         this._setEventListener();
-       
-
     }
-
 }
+
+
 
 export default FormValidator;
 

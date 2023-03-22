@@ -1,7 +1,7 @@
 .photo-grid {
-  /* border: 2px solid red;*/
   box-sizing: border-box;
   margin: 47px auto 67px auto;
+  min-height: 35vh;
   max-width: 880px;
   width: 100%;
 }

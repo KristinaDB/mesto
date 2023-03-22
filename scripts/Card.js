@@ -1,10 +1,9 @@
-import { handleOpenPopup } from './script.js';
-
 class Card {
     static _template = document.querySelector('#userPhoto').content;
-    constructor(data) {
+    constructor(data, handleOpenPopup) {
         this._title = data.name;
         this._image = data.link;
+        this._handleOpenPopup = handleOpenPopup;
     }
 
     generateCard() {
@@ -20,6 +19,7 @@ class Card {
     _setEventListeners() {
         this._element.querySelector('.photo-card__delete').addEventListener('click', () => {
             this._element.remove();
+            this._element = null;
         })
 
         this._element.querySelector('.photo-card__btn-like').addEventListener('click', () => {
@@ -27,16 +27,14 @@ class Card {
         })
 
         this._element.querySelector('.photo-card__image').addEventListener('click', () => {
-            handleOpenPopup(this._image, this._title);
+            this._handleOpenPopup(this._image, this._title);
 
         });
     }
 
-
-    renderCard = (photoCard) => {
-        const photoGrid = document.querySelector('.photo-grid__list');
-        photoGrid.prepend(photoCard);
+    renderCard = (container) => {
+        container.prepend(this._element);
     }
 }
-
+   
 export default Card;

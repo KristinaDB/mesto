@@ -20,9 +20,7 @@ const profileJob = profile.querySelector('.profile__info-job');//находим 
 const photoLink = document.querySelector('.popup__container-view');
 const photoTitle = document.querySelector('.popup__container-title');
 const popups = document.querySelectorAll('.popup');
-const buttonAdd = document.querySelector('#buttonAdd');
-const errorInput = document.querySelectorAll('.input-error');
-const inputs = document.querySelectorAll('.popup__input');
+const photoGrid = document.querySelector('.photo-grid__list');
 
 const objectValidation = {
   formSelector: '.popup__form',
@@ -33,13 +31,17 @@ const objectValidation = {
   errorClass: 'popup__error_visible'
 };
 
+function creatСard (element){
+  const card = new Card(element, handleOpenPopup);
+  const photoElement = card.generateCard();
+  card.renderCard(photoGrid);
 
+  return (photoElement);
+}
 
 photoPlace.forEach((item) => {
-  const card = new Card(item);
-  const photoElement = card.generateCard();
-  card.renderCard(photoElement);
-});
+  creatСard(item);
+  });
 
 const photoAddFromForm = (evt) => {
   evt.preventDefault();
@@ -47,15 +49,13 @@ const photoAddFromForm = (evt) => {
     link: photoLinkInput.value,
     name: photoNameInput.value
   }
-  const cardFromForm = new Card(newCard);
-  const photoFromForm = cardFromForm.generateCard();
-  cardFromForm.renderCard(photoFromForm);
+  creatСard(newCard);
   evt.target.reset();
   closePopup(popupAddPhoto);
 }
 
 
-export function handleOpenPopup(link, name) {
+function handleOpenPopup(link, name) {
   photoLink.src = link;
   photoLink.alt = name;
   photoTitle.textContent = name;
@@ -65,51 +65,31 @@ export function handleOpenPopup(link, name) {
 
 
 
-const buttonDisabled = (button) => {
-  if ((photoNameInput.value === '') && (photoLinkInput.value === '')) {
-    button.disabled = true;
-    button.classList.add('popup__button_disabled');
-  }
-}
-
 //функция открытия попапов
 function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', closeByEscape);
 }
 
+function installValidation (item){
+  const newValidator = new FormValidator(objectValidation, item);
+  newValidator.enableValidation();
+}
+
 function openPropfilePopup() {
-  clearInputError(errorInput, inputs);
   nameInput.value = profileName.textContent; //заносим данные в форму
   jobInput.value = profileJob.textContent; //заполняем поля формы 
-  const newValidator = new FormValidator(objectValidation, '.form-edit');
-  newValidator.enableValidation();
-  console.log(newValidator);
+  installValidation('.form-edit');
   openPopup(popupEditProfile); //вызываем функцию для открытия попапа 
 }
 
 function openPhotoAddPopup() {
-  clearInputError(errorInput, inputs);
-  buttonDisabled(buttonAdd);
-  const newValidatorForm = new FormValidator(objectValidation, '.form-add');
-  newValidatorForm.enableValidation();
-  console.log(newValidatorForm);
+  installValidation('.form-add');
   openPopup(popupAddPhoto);
 }
 
 
 //функция закрытия попапов
-
-function clearInputError(error, input) {
-  error.forEach((index) => {
-    index.textContent = '';
-  })
-  input.forEach((item) => {
-    item.classList.remove('popup__input_type_error');
-    item.value = '';
-  })
-}
-
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
