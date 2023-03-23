@@ -32,9 +32,6 @@ class Card {
         });
     }
 
-    renderCard = (container) => {
-        container.prepend(this._element);
-    }
 }
    
 export default Card;

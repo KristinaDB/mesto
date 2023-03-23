@@ -32,10 +32,9 @@ const objectValidation = {
 };
 
 function creatСard (element){
-  const card = new Card(element, handleOpenPopup);
+  const card = new Card(element, openPopupViewPhoto);
   const photoElement = card.generateCard();
-  card.renderCard(photoGrid);
-
+  photoGrid.prepend(photoElement);
   return (photoElement);
 }
 
@@ -43,7 +42,7 @@ photoPlace.forEach((item) => {
   creatСard(item);
   });
 
-const photoAddFromForm = (evt) => {
+const addPhotoFromForm = (evt) => {
   evt.preventDefault();
   const newCard = {
     link: photoLinkInput.value,
@@ -55,7 +54,7 @@ const photoAddFromForm = (evt) => {
 }
 
 
-function handleOpenPopup(link, name) {
+function openPopupViewPhoto(link, name) {
   photoLink.src = link;
   photoLink.alt = name;
   photoTitle.textContent = name;
@@ -79,12 +78,10 @@ function installValidation (item){
 function openPropfilePopup() {
   nameInput.value = profileName.textContent; //заносим данные в форму
   jobInput.value = profileJob.textContent; //заполняем поля формы 
-  installValidation('.form-edit');
   openPopup(popupEditProfile); //вызываем функцию для открытия попапа 
 }
 
 function openPhotoAddPopup() {
-  installValidation('.form-add');
   openPopup(popupAddPhoto);
 }
 
@@ -121,9 +118,10 @@ function handleFormSubmit(e) {
   profileJob.textContent = jobInput.value;// Получите значение полей jobInput и nameInput из свойства value
   closePopup(popupEditProfile);//вызов функции закрытия popup
 }
-
+installValidation('.form-add');
+installValidation('.form-edit');
 formEditOpen.addEventListener('click', openPropfilePopup);//обработчик события открытия popup редактиварония профиля
 formAddOpen.addEventListener('click', openPhotoAddPopup);//обработчик события открытия popup добавления карточки
 formEdit.addEventListener('submit', handleFormSubmit); //обработка кнопки формы редактирования профиля
-formAdd.addEventListener('submit', photoAddFromForm);//обработка кнопки формы загрузки карточки
+formAdd.addEventListener('submit', addPhotoFromForm);//обработка кнопки формы загрузки карточки
 
