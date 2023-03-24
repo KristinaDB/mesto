@@ -48,14 +48,28 @@ class FormValidator {
         this._buttonSubmit.classList.toggle(this._inactiveButtonClass, !this._form.checkValidity());
     }
 
-    _buttonDisabled(item) {
+      _buttonDisabled(item) {
         if (item.value === '') {
              this._buttonSubmit.disabled = true;
             this._buttonSubmit.classList.add('popup__button_disabled');
         }
     }
 
-    _setEventListener() {
+    disableButton(){
+        this._buttonSubmit.disabled = true;
+        this._buttonSubmit.classList.add('popup__button_disabled');
+    }
+
+    deleteErrorFormInputWhenOpen(){  
+        this._inputList.forEach((item) => {
+        this._deleteErrorFormImput(item);
+        this._buttonSubmit.disabled = false;
+        this._buttonSubmit.classList.remove('popup__button_disabled');
+    });
+}
+
+
+       _setEventListener() {
         this._inputList.forEach((item) => {
             this._buttonDisabled(item);
             item.addEventListener('input', () => {
@@ -73,4 +87,5 @@ class FormValidator {
 
 
 export default FormValidator;
+
 

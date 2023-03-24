@@ -70,10 +70,13 @@ function openPopup(popup) {
   document.addEventListener('keydown', closeByEscape);
 }
 
-function installValidation (item){
-  const newValidator = new FormValidator(objectValidation, item);
-  newValidator.enableValidation();
-}
+
+const formValidatorCardPopup = new FormValidator(objectValidation, '.form-add');
+formValidatorCardPopup.enableValidation();
+
+const formValidatorProfilePopup = new FormValidator(objectValidation, '.form-edit');
+formValidatorProfilePopup.enableValidation();
+
 
 function openPropfilePopup() {
   nameInput.value = profileName.textContent; //заносим данные в форму
@@ -118,10 +121,20 @@ function handleFormSubmit(e) {
   profileJob.textContent = jobInput.value;// Получите значение полей jobInput и nameInput из свойства value
   closePopup(popupEditProfile);//вызов функции закрытия popup
 }
-installValidation('.form-add');
-installValidation('.form-edit');
-formEditOpen.addEventListener('click', openPropfilePopup);//обработчик события открытия popup редактиварония профиля
-formAddOpen.addEventListener('click', openPhotoAddPopup);//обработчик события открытия popup добавления карточки
-formEdit.addEventListener('submit', handleFormSubmit); //обработка кнопки формы редактирования профиля
-formAdd.addEventListener('submit', addPhotoFromForm);//обработка кнопки формы загрузки карточки
 
+formEditOpen.addEventListener('click', () => { //обработчик события открытия popup редактиварония профиля
+ openPropfilePopup();
+ //функция сбрасывает ошибки и делает кнопку активной,
+ //при очистке полей форы редактирования профиля и закрытии формы на крестик
+ formValidatorProfilePopup.deleteErrorFormInputWhenOpen();  
+});
+
+formAddOpen.addEventListener('click', () => { //обработчик события открытия popup добавления карточки
+   openPhotoAddPopup();
+   formValidatorCardPopup.disableButton();
+});
+
+formEdit.addEventListener('submit', handleFormSubmit);  //обработка кнопки формы редактирования профиля
+
+
+formAdd.addEventListener('submit', addPhotoFromForm) ///обработка кнопки формы загрузки карточки
