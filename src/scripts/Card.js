@@ -1,9 +1,10 @@
+import PopupWithImage from "./PopupWithImage.js";
 class Card {
     static _template = document.querySelector('#userPhoto').content;
-    constructor(data, handleOpenPopup) {
+    constructor(data) {
         this._title = data.name;
         this._image = data.link;
-        this._handleOpenPopup = handleOpenPopup;
+       // this._handleOpenPopup = handleOpenPopup;
     }
 
     generateCard() {
@@ -27,7 +28,8 @@ class Card {
         })
 
         this._element.querySelector('.photo-card__image').addEventListener('click', () => {
-            this._handleOpenPopup(this._image, this._title);
+        const PopupViewPhoto = new PopupWithImage (this._image, this._title, '.popup_photo');
+             PopupViewPhoto.handleCardClick();
 
         });
     }
