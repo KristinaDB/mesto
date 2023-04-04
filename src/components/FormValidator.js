@@ -51,20 +51,20 @@ class FormValidator {
       _buttonDisabled(item) {
         if (item.value === '') {
              this._buttonSubmit.disabled = true;
-            this._buttonSubmit.classList.add('popup__button_disabled');
+            this._buttonSubmit.classList.add(this._inactiveButtonClass);
         }
     }
 
     disableButton(){
         this._buttonSubmit.disabled = true;
-        this._buttonSubmit.classList.add('popup__button_disabled');
+        this._buttonSubmit.classList.add(this._inactiveButtonClass);
     }
 
     deleteErrorFormInputWhenOpen(){  
         this._inputList.forEach((item) => {
         this._deleteErrorFormImput(item);
         this._buttonSubmit.disabled = false;
-        this._buttonSubmit.classList.remove('popup__button_disabled');
+        this._buttonSubmit.classList.remove(this._inactiveButtonClass);
     });
 }
 

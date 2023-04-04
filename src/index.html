@@ -54,10 +54,10 @@
     <div class="popup__container">
       <h2 id="title-add-photo" class="popup__title">Новое место</h2>
       <form novalidate class="form-edit form-add popup__form" id="formAdd" name="popupAddPhoto">
-        <input id="photoName" class="form-edit__input popup__input" value="" type="text" name="photoName" required
+        <input id="photoName" class="form-edit__input popup__input" value="" type="text" name="name" required
           placeholder="Название" minlength="2" maxlength="30">
         <span id="photoName-error" class="input-error"></span>
-        <input id="photoLink" class="form-edit__input popup__input" value="" type="url" name="photoLink" required
+        <input id="photoLink" class="form-edit__input popup__input" value="" type="url" name="link" required
           placeholder="Ссылка на картинку">
         <span id="photoLink-error" class="input-error"></span>
         <button class="form-edit__btn popup__button" id="buttonAdd" type="submit">Создать</button>
@@ -86,7 +86,6 @@
       </div>
     </li>
   </template>
-   
 </body>
 
 </html>

@@ -6,10 +6,12 @@ export default class Popup {
 
     open() {  //функция открытия попапа
         this._popup.classList.add('popup_opened');
+        document.addEventListener('keydown', this._clickKeyEsc);
     }
 
     close() {//функция закрытия  попапа
         this._popup.classList.remove('popup_opened');
+        document.removeEventListener('keydown', this._clickKeyEsc);
 
     }
 
@@ -17,10 +19,6 @@ export default class Popup {
         if (evt.key === 'Escape') {
             this.close();
         }
-    }
-
-    _handleEscClose() { //добавляем слушатель при клике на клавишу Esc
-        document.addEventListener('keydown', this._clickKeyEsc);
     }
 
 
@@ -33,7 +31,6 @@ export default class Popup {
                 this.close();
             }
         })
-        this._handleEscClose();
 
     }
 
