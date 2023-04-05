@@ -1,12 +1,13 @@
-import Card from './scripts/Card.js';
-import photoPlace from './scripts/cards.js';
-import FormValidator from './scripts/FormValidator.js';
-import Section from './scripts/Section.js';
-import PopupWithForm from './scripts/PopupWithForm.js';
-import PopupWithImage from './scripts/PopupWithImage.js';
-import UserInfo from './scripts/UserInfo.js';
+import Card from './components/Card.js';
+import FormValidator from './components/FormValidator.js';
+import Section from './components/Section.js';
+import PopupWithForm from './components/PopupWithForm.js';
+import PopupWithImage from './components/PopupWithImage.js';
+import UserInfo from './components/UserInfo.js';
 
-import {nameInput,
+import {
+photoPlace,
+nameInput,
 jobInput ,
 photoNameInput ,
 photoLinkInput ,
@@ -18,8 +19,7 @@ profileJob ,
 photoLink ,
 photoTitle ,
 photoGrid,
-objectValidation,
-photoPlace} from './utils/components/constants.js'
+objectValidation} from './utils/constants.js'
 
 import './pages/index.css';
 
